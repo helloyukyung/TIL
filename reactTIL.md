@@ -19,8 +19,8 @@
 DOM 
 ----
 Document Object Model 
- 표현, 논리
-문서를 논리 트리로적 모델  
+
+문서를 트리로 표현(논리트리), 논리적 모델  
 - W3Sschools /createElement
 - element(우리눈에 보여지는 것 )
 - dom (컴퓨터, 브라우저가 이해하는 elements의 원형, 메모리에 웹 페이지 문서구조를 표현함으로써 스크립트 및 프로그래밍 언어와 페이지를 연결)
@@ -232,6 +232,7 @@ js 와 jsx 섞어 쓰기3(map)
 -----------------
 리액트와 리렌더링 
 ====
+
 바닐라 js -> 변경으로 인해 element를 다시 그림 
 React -> 변경된 부분만 다시 그림 
 
@@ -297,4 +298,230 @@ React 앨리먼트는 불변객체(immutable)(변하지 않는 객체)이다. <b
 - element 타입이 바뀌면 이전 앨리먼트는 버리고 새로 그리며, 앨리먼트 타입이 같다면 (key를 먼저 비교하고,key가 같다면) props를 비교해서 변경사항을 반영한다. 
 - tree를 이야기할 때, dom은 화면에 그려지고 보여지는 애가 아니라 논리적으로 브라우저가 인지하고 있는 tree 개념 , 그것을 그린게 element임(실제 눈에 보여지는 애)-> react는 dom 을 어떻게 비교할까?
 - virtual dom: 이전virtual dom과 새로 들어온virtual dom을 비교, 재조정 알고리즘(Reconciliation)을 통해 업데이트 함
-  즉, 돔에 접근해서 돔을 바꾸는게 아니라 가상 돔을 바꿈 
+  즉, 돔에 접근해서 돔을 바꾸는게 아니라 가상 돔(필요한 부분만) 바꾸는 것 
+<br>
+<br>
+-------------
+<br>
+eventHandler이벤트 핸들러
+----
+
+event : 사용자의 동작, 브라우저의 변경을 코드가 인지 
+
+
+Vanila JS에서 event를 적용하는 방법  
+---- 
+ addEventListener, on{event}, onclick="", onmouseout, onfocus, onblur...등
+
+```js
+<button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button> 
+<p id="demo"></p>
+```
+- inline 방식( tag안에 넣음 )
+
+```js
+<script>
+	const button = document.getElementById("button");
+    button.addEventListener("mouseout",()=> alert('bye'));
+</script>
+```
+- addEventListener를 통해 직접 입력하는 방식
+
+React에서 event를 적용하는 방법 
+----
+on{Event}, onClick, onMouseOut onFocus,onBlur
+
+리엑트는 <b>카멜 케이스</b>로 표현<br>
+- 기본 문장 : on click 
+- 카멜 케이스 : onClick
+- 파스칼 케이스 : OnClick
+- 케밥 케이스 : on-click
+- 스네이크 케이스 : on_click
+
+```jsx
+const rootElement = document.getElementById("root");
+const handleClick = () => {
+  alert("pressed");
+};
+const element = (
+  <button onClick={handleClick} onMouseOut={() => alert("bye")}>
+    press
+  </button>
+);
+ReactDOM.render(element, rootElement);
+```
+
+
+- React 또한 inline, 함수로도 표현 가능 
+- addeventlistener 도 사용 가능하나 보편적으로(또 편하니까) inline 안에 함수를 집어넣어 표현함 
+
+
+event handler 써보기 
+----
+
+``` jsx
+     const rootElement = document.getElementById("root");
+
+      const state = { keyword: "", typing: false, result: "" }; // 전역변수
+
+      const App = () => {
+        function handleChange(event) {
+          setState({ typing: true, keyword: event.target.value }); // inline에 넣어준 함수가 알아서 event객체를 가져와줌
+
+          function handleClick() {
+            setState({
+              typing: false,
+              result: `We find results of ${state.keyword}`
+            });
+          }
+
+        return (
+          <>
+            <input onChange={handleChange} />
+            <button onClick={handleClick}>search</button>
+            <p>
+              {state.typing ? `looking for...${state.keyword}` : state.result}
+            </p>
+          </>
+        );
+      };
+
+      function setState(newState) {
+        Object.assign(state, newState); 
+
+        render(); // setState를 할때마다 rander를 다시 돌려줌
+      }
+
+      function render() {
+        ReactDOM.render(<App />, rootElement);// reaact가 알아서 dom 안에서 변경이 없으면 변경이 있는 props들만 바꿔줌 
+
+      }
+      render();
+    </script>
+```
+
+- Object.assign : 객체 내용 복사, 이전 객체(출처객체)를 새로운 객체(대상 객체)로 덮어 씀 다른 부분이 있으면 덮어쓰고 같으면 유지 
+- 전역 변수 변경 ReactDOM.render 에서 render함수를 새로 부르면서 업데이트 시킴
+
+-------
+<br>
+
+컴포넌트 상태다루기- useState
+----
+- 컴포넌트란?<br>
+ DOM: 논리트리<br>
+ 컴포넌트 : 앨리먼트(element)의 집합 <br>
+ 앨리먼트 : 컴포넌트의 "구성요소" <br>
+
+- 위 코드에서 App-> component임 input, button 등 element들의 집합체이므로 
+```jsx
+<div id="root"></div>
+<script type="text/babel">
+  const rootElement = document.getElementById("root");
+
+  const App = () => {
+    const [keyword, setKeyword] = React.useState(""); // useState: render를 다시 해주지 않아도 적용이 됨
+    const [result, setResult] = React.useState("");
+    const [typing, setTyping] = React.useState(false);
+
+    function handleChange(event) {
+      setKeyword(event.target.value);
+      setTyping(true);
+    }
+
+    function handleClick() {
+      setTyping(false);
+      setResult(`we find results of ${keyword}`);
+    }
+
+    return (
+      <>
+        <input onChange={handleChange} />
+        <button onClick={handleClick}>search</button>
+        <p>{typing ? `looking for ${keyword}...` : result}</p>
+      </>
+    );
+  };
+
+  ReactDOM.render(<App />, rootElement);
+</script>
+```
+- useState : 컴포넌트 안의 상태값을 관리해주는 훅
+<br>
+
+
+컴포넌트 사이드 이펙트 다루기 - useEffect
+----
+
+사이드 이펙트 = 부작용 
+
+의도하지 않은 효과  vs 부수 효과 <br>
+변경 효과가 일어날때, 다른곳으로 부수적인 효과를 줌.
+keyword값이 바뀌었을때 부수적으로 local storage에 저장 
+
+```jsx
+const App = () => {
+  const [keyword, setKeyword] = React.useState(
+    ()=>{ window.localStorage.getItem("keyword")}// window의 localstorge에 도달해서 꺼내와야하기때문에 딜레이가 발생함
+  );
+  const [result, setResult] = React.useState("");
+  const [typing, setTyping] = React.useState(false);
+
+  window.localStorage.setItem("keyword", keyword);// 바뀔때마다 계속 local Storage를 굴림 나는 "keyword"가 바뀔때마다 저장하고 싶음
+
+  function handleChange(event) {
+    // window.localStorage.setItem("keyword", event.target.value); 
+    setKeyword(event.target.value);
+    setTyping(true);
+  }
+```
+- App component에 console.log("render")를 해보면 값이 바뀔때마다 "render"가 뜨는 것을 볼 수 있음 
+- 계속 window의 localstorge에 도달해서 꺼내와야하기때문에 딜레이가 발생함
+- getItem은 window의 localstorge에 도달해서 꺼내와야하기때문에 시간이 발생하므로 <b>함수</b>로 값을 넣어줌 (초기값을 return하는 함수-> <b>함수</b>를 사용하면 initializing 하는 것을  delay, lazy하게 줄 수 있음, 바로 값을 못가져오면 버퍼가 생길 수 있으므로)
+
+```jsx 
+React.useEffect(()=>{
+  console.log("effect");// render되는 모습 확인 
+  window.localStorage.setItem("keyword",keyword);
+},[ keyword , typing] );
+```
+- useEffect : 첫번째 인자는 함수(실행), 두번재 인자는 배열(dependency array의존성 ),(사이드 이펙트를 일으키고 싶은 대상을 넣어줌. 안넣어도(모든 변화에 반응) , 빈배열을 넣어도 됨(처음에만 동작)) 
+- keyword, typing이 바뀔때마다 이를 React가 인지하고 함수를 실행하게 함 
+
+
+커스텀 훅(custom Hook) 만들기 
+----
+짝어내기 / 반복 => 함수화 <br>
+useState/useEffect를 반복 => 커스텀 훅<br>
+- useLocalStorage
+
+```jsx
+function useLocalStorage(itemName, value="") { // default value는 브라우저에서 이미 갖고있는 값 
+  // item name을 넘겨주도록 함
+  const [state, setState] = React.useState(() => {
+    window.localStorage.getItem(itemName) || value;// 두번째 인자를 안넣어 줬을 때는 "" 빈 값 
+  });
+  React.useEffect(() => {
+    window.localStorage.setItem(itemName, state);
+  }, [state]);
+  return [state, setState];
+}
+//--- in app component
+const App = () => {
+  const [keyword, setKeyword] = useLocalStorage("keyword");
+  const [result, setResult] = React.useState("");
+  const [typing, setTyping] = React.useState("typing", false);//boolean의 경우
+```
+-  커스텀 훅(useLocalStorage)을 만듦으로 코드를 좀 더 효율적으로 사용할 수 있음
+
+
+hook flow 이해하기 (App- child)
+----
+hook flow -> hook 들의 호출 타이밍 <br>
+useSatate -> setState 시 prev이 주입된다. 
+
+
+
+
+
+
