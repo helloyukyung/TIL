@@ -517,6 +517,9 @@ const App = () => {
 
 hook flow 이해하기 (App- child)
 ----
+
+<a href="#">참고 code</a>
+
 hook flow -> hook 들의 호출 타이밍 <br>
 useSatate -> setState 시 prev이 주입된다. 
 
