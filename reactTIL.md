@@ -517,14 +517,132 @@ const App = () => {
 
 hook flow 이해하기 (App- child)
 ----
-
-<a href="#">참고 code</a>
+<a href="#">참고 code</a> 
 
 hook flow -> hook 들의 호출 타이밍 <br>
 useSatate -> setState 시 prev이 주입된다. 
 
 
 
+- console.log 순서  
+1. APP render start 
+2. App useState
+3. APP render End
+4. (1)useEffect, no deps # 모든 변화에 
+5. (2)useEffect, empty deps #처음에 render 될때만
+6. (3)useEffect, [show] # []값이 바뀔때만
+
+  + useEffect는 deps에 따라 다르게 호출될 수 있음 
+  + APP render가 끝난 뒤에 useEffect가 동작함-> sideeffect
 
 
+
+hook flow 이해하기2 (App- child)
+----
+<a href="#">참고 code</a>
+
+
+- search 버튼을 눌렀을 때(show가 눌림 )
+1. APP render start 
+2. APP render End
+3. child render start  
+4. Child useState 
+5. child render end  
+6. child useEffect, no deps <br>
+   child useEffect, empty deps<br>
+   child useEffect, [text] 
+7. App useEffect, no deps<br>
+   App useEffect, [show] 
+
+
+child가 다 그려지고 children use effect가 일어난 뒤 그다음 app의 useeffect가 일어남
+
+- input에 글자를 입력할때
+1. child render start  
+2. child render end
+3. child useEffect, no deps <br>
+   child useEffect, empty deps<br>
+   child useEffect, [text] 
+
+- search 버튼을 눌러 껐을 때 (false)
+
+1. APP render start 
+2. APP render End
+3. App useEffect, no deps
+4. App useEffect, [show] 
+
+clean up
+----
+- setup해 놓은 sideEffect를 다시 동작할 때 기존에 세팅되어있는것을 다 지움 
+- 처음생성할때 clean up은 안불림 
+- 한번이라도 useeffect가 등록이 되어 있었으면 cleanup -> use effect
+- 부모의 cleanup이 먼저 일어나고 children cleanup
+- children render-> app clean up -> child use effect -> app use effect
+- 불변객체를 만들어줌 
+
+정리 
+----
+- useEffect -> render가 끝난뒤 실행된다 
+- update시 -> useEffect clean up / useEffect 
+- dependency array -> 전달받은 값의 변화 있는 경우만 
+
+
+리액트 element에 스타일 입히기 (style)
+----
+리액트의 장점 : html과 js 를 섞어쓰는 jsx, 함수로 빼낼 수 ㅇ
+
+```jsx
+  function Button({ props }) {
+    console.log(JSON.stringify(props));//객체를 글자로 바꿔서 보여줌 = undifined
+    return <button className="button" {...props}></button>;
+  }
+      const element = (
+    <>
+      <Button className="button" style={{ borderRadius: "50%" }}>
+        Green
+      </Button>
+      <Button className="button blue" style={{ borderRadius: 8 }}>
+        Blue
+      </Button>
+      <button className="button red">Red</button>// html
+      <button className="button gray">Gray</button>// html
+      <button className="button black">Black</button>//html
+    </>
+  );
+```
+- 그냥 button만 출력되고 css는 꾸며지지 않음 ->우리는 element에서  props'객체'를 받지 않았음  
+- props 자체는 모든 객체를 나타냄 즉, function Button( props ) 이렇게 표현해야 정상적으로 작동  
+
+
+- props = {className, style, children...}   
+- props = {className, style, ...rest}
+- className -> 문자열 
+- style -> 객체 카멜케이스, className보다 먼저 
+
+
+----
+Ref로 Dom 다루기 (useRef)
+----
+<a href="#">참고 code</a>
+
+Ref: reference준말 
+
+useRef: DOM을 다루는 hook, 값을 특정할 수 있음  
+
+- Input Element가 있고 화면이 뜨자마자 focus를 주고 싶다면?<br>
+  ->in js -> ?.focus();
+
+- <del>왜 이걸 DOM 조작하기라고 할까 element조작하기 아닌가,,,</del>
+
+- document.getElementById류를 사용하지 않고 useRef를 사용할까->
+document에 접근하여 이용하면 비효율 발생할 수 있음 (react가 관장하게 끔 하자)
+- 전역적으로 관리하거나, component상태안에서 독립적으로 react에 최적화된 (저장공간) 기능을 쓰고 싶을 때 useRef사용 
+
+Form다루기 
+----
+
+  onSubmit->  event.preventDefault() ; 이벤트의 기본 동작을 막음  
+  event.target.elements -> console.dir(element) ; 
+  특정 event target을 console.log 함으로써 element, input의 값을 알 수 있었음 
+ 
 

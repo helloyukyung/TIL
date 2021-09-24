@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <div id="root"></div>
+    <script type="text/babel">
+      const App = () => {
+        const [message, setMessage] = React.useState("");
+        const handleSubmit = (event) => {
+          event.preventDefault();
+          const phoneNumber = event.target.elements.phone.value;
+          if (phoneNumber.startsWith(0)) {
+            alert("Good");
+          } else {
+            alert("Bad");
+          }
+        };
+        const handleChange = (event) => {
+          const phoneNumber = event.target.value;
+          if (phoneNumber.startsWith(0)) {
+            setMessage("Phone Number is vaild");
+          } else {
+            setMessage("Phone Number should starts with 0");
+          }
+        };
+
+        return (
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="phone"> phone number </label>
+            <br />
+            <input id="phone" name="phone" onChange={handleChange} />
+            <p>{message}</p>
+            <br />
+            <br />
+            <button type="submit">submit</button>
+          </form>
+        );
+      };
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+      // rootElement.appendChild(element);
+    </script>
+  </body>
+</html>
