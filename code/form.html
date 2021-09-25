@@ -14,20 +14,26 @@
     <script type="text/babel">
       const App = () => {
         const [message, setMessage] = React.useState("");
+        const [phoneNumber, setPhoneNumber] = React.useState("");
         const handleSubmit = (event) => {
           event.preventDefault();
-          const phoneNumber = event.target.elements.phone.value;
-          if (phoneNumber.startsWith(0)) {
-            alert("Good");
-          } else {
-            alert("Bad");
-          }
+          // const phoneNumber = event.target.elements.phone.value;
+          alert(phoneNumber);
+          // if (phoneNumber.startsWith(0)) {
+          //   alert("Good");
+          // } else {
+          //   alert("Bad");
+          // }
         };
         const handleChange = (event) => {
-          const phoneNumber = event.target.value;
-          if (phoneNumber.startsWith(0)) {
+          if (event.target.value.startsWith(0)) {
             setMessage("Phone Number is vaild");
+            setPhoneNumber(event.target.value);
+          } else if (event.target.value.length === 0) {
+            setPhoneNumber("");
+            setMessage("");
           } else {
+            setPhoneNumber("");
             setMessage("Phone Number should starts with 0");
           }
         };
@@ -36,11 +42,23 @@
           <form onSubmit={handleSubmit}>
             <label htmlFor="phone"> phone number </label>
             <br />
-            <input id="phone" name="phone" onChange={handleChange} />
+            <input
+              id="phone"
+              name="phone"
+              onChange={handleChange}
+              value={phoneNumber}
+            />
             <p>{message}</p>
             <br />
             <br />
-            <button type="submit">submit</button>
+            <button
+              type="submit"
+              disabled={
+                !phoneNumber.length === 0 || message !== "Phone Number is vaild"
+              }
+            >
+              submit
+            </button>
           </form>
         );
       };

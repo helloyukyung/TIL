@@ -638,7 +638,7 @@ useRef: DOM을 다루는 hook, 값을 특정할 수 있음
 document에 접근하여 이용하면 비효율 발생할 수 있음 (react가 관장하게 끔 하자)
 - 전역적으로 관리하거나, component상태안에서 독립적으로 react에 최적화된 (저장공간) 기능을 쓰고 싶을 때 useRef사용 
 
-Form다루기 
+Form다루기 1
 ----
 
   onSubmit->  event.preventDefault() ; 이벤트의 기본 동작을 막음  
@@ -646,3 +646,39 @@ Form다루기
   특정 event target을 console.log 함으로써 element, input의 값을 알 수 있었음 
  
 
+Form다루기 2 (uncontrolled ve controlled)
+----
+<a href="#">참고 code</a>
+- validation 체크 ; input으로 입력되는 값에 따라서 onsubmit에서 validation check or 입력하자마자 보고싶어서 handlechange 에다가 그 값이 0 인지에 따라 값을 보여줌
+- 
+- value: react에서 set해주는 값을 직접 바꾸고 싶을 때, value를 input tag에 넣어주고 state를 직접 넣어줌. (disabled도,,, )
+
+```jsx
+disabled={
+!phoneNumber.length === 0 || message !== "Phone Number is vaild"
+}
+```
+- 메세지 값이 하나라도 있었으면 좋겠음 //  메세지가 "Phone Number is vaild" 할때 제출되길 원함 
+- error : phone number가 0 이어도 Phone Number should starts with 0 됨 
+- 이유 : handlechange()에서 setPhoneNumber()값이 싱크가 맞지 않아서,,,<br>
+        usestate , setPhoneNumber에서 바로 값을 가져다 쓰니까 에러가 났음 <br>
+        그래서 이벤트로 온 값을 쓰고 , state를 업데이트 해줘야할 때, setPhoneNumber를 뒤에 붙여줌 
+
+- validation -> onChange에서 하는게 편함 
+- controlled -> input의 value를 직접 react componemt에서 관리 
+
+------
+
+Error다루기 (catch error)
+----
+- in js
+
+```js
+try{
+  //... error가 날 수 있는 위험한 code 
+} catch (error){
+  // error 가 났을 때, 어떻게 처리할 수 있는지 
+}
+```
+- 어떨 때는 자바스크립트의 error때문에 react의 component가 안그려질 수도 있음 
+- ErrorBoundary: React에서 <child/>에서 error가 났어도,, 에러가 나지 않은 다른 부분은 보여주게 만들고 싶을때, 
