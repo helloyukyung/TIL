@@ -517,7 +517,7 @@ const App = () => {
 
 hook flow 이해하기 (App- child)
 ----
-<a href="#">참고 code</a> 
+<a href="https://github.com/yukyung123/TIL/blob/master/code/hookflow(1).html">참고 code</a> 
 
 hook flow -> hook 들의 호출 타이밍 <br>
 useSatate -> setState 시 prev이 주입된다. 
@@ -539,7 +539,7 @@ useSatate -> setState 시 prev이 주입된다.
 
 hook flow 이해하기2 (App- child)
 ----
-<a href="#">참고 code</a>
+<a href="https://github.com/yukyung123/TIL/blob/master/code/hookflow(2).html">참고 code</a>
 
 
 - search 버튼을 눌렀을 때(show가 눌림 )
@@ -623,7 +623,7 @@ clean up
 ----
 Ref로 Dom 다루기 (useRef)
 ----
-<a href="#">참고 code</a>
+<a href="https://github.com/yukyung123/TIL/blob/master/code/Ref_DOM.html">참고 code</a>
 
 Ref: reference준말 
 
@@ -648,7 +648,7 @@ Form다루기 1
 
 Form다루기 2 (uncontrolled ve controlled)
 ----
-<a href="#">참고 code</a>
+<a href="https://github.com/yukyung123/TIL/blob/master/code/form.html">참고 code</a>
 - validation 체크 ; input으로 입력되는 값에 따라서 onsubmit에서 validation check or 입력하자마자 보고싶어서 handlechange 에다가 그 값이 0 인지에 따라 값을 보여줌
 - 
 - value: react에서 set해주는 값을 직접 바꾸고 싶을 때, value를 input tag에 넣어주고 state를 직접 넣어줌. (disabled도,,, )
@@ -671,7 +671,7 @@ disabled={
 
 Error다루기 (catch error)
 ----
-<a href="#">참고 code</a>
+<a href="https://github.com/yukyung123/TIL/blob/master/code/catch_error.html">참고 code</a>
 - in js
 
 ```js
@@ -702,7 +702,7 @@ Key-value
 
 Key와 리랜더링 알아보기 (Detail 이전 코드 확장)
 ----
-<a href="#">참고 code</a>
+<a href="https://github.com/yukyung123/TIL/blob/master/code/key_value(1).html">참고 code</a>
 
 - key를 안줬을 때는 버튼은 그대로 있는데, 값들만 바꿔치기됨( key={index} )
 
@@ -717,7 +717,7 @@ Key와 리랜더링 알아보기 (Detail 이전 코드 확장)
 
 상태끌어올리기 (State lifting up)
 ----
-<a href="#">참고 code</a>
+<a href="https://github.com/yukyung123/TIL/blob/master/code/state_lifting%20up.html">참고 code</a>
 
 - 형제의 상태를 알 방법이 없음 -> 부모로 상태의 관리를 끌어올림 
 - 다시, 형제 컴포넌트의 상태 궁금 -> 필요하면 부모(서로의 공통된)로 lifting up
@@ -738,7 +738,7 @@ https://developer.mozilla.org/ko/docs/Web/API/Fetch_API#%EA%B8%B0%EB%B3%B8_%EA%B
 
 JSON : 데이터를 표현하는 데이터 포멧의 일환 
 
-<a href="#">참고 code</a>
+<a href="https://github.com/yukyung123/TIL/blob/master/code/data_fetch.html">참고 code</a>
 
 ```jsx
 {JSON.stringify(data, null, 2)}
