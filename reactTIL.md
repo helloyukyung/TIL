@@ -671,6 +671,7 @@ disabled={
 
 Error다루기 (catch error)
 ----
+<a href="#">참고 code</a>
 - in js
 
 ```js
@@ -680,5 +681,73 @@ try{
   // error 가 났을 때, 어떻게 처리할 수 있는지 
 }
 ```
+- Error Boundary -> catch Error해서 보여주기 
+
+- FallBack -> Error 가 났을때 보여줄 컴포넌트 
+
 - 어떨 때는 자바스크립트의 error때문에 react의 component가 안그려질 수도 있음 
-- ErrorBoundary: React에서 <child/>에서 error가 났어도,, 에러가 나지 않은 다른 부분은 보여주게 만들고 싶을때, 
+- ErrorBoundary: React에서 <child/>에서 error가 났어도,, 정상적으로 작동하는 다른 부분은 보여주게 만들고 싶을때, 
+- 함수형 component가 아닌 class, error가 났을 때 상태값을 처리하는 getDerivedStateFromerror 함수를 class에서만 제공하기 때문에 
+<br>
+
+---------
+
+Ket와 리랜더링 알아보기 (What is Key)
+----
+<a href="#">참고 code</a>
+Key-value 
+-DB, Dictionary, Json, Object ...
+- Key는 value 를 특정하는 이름 
+
+
+Key와 리랜더링 알아보기 (Detail 이전 코드 확장)
+----
+<a href="#">참고 code</a>
+
+- key를 안줬을 때는 버튼은 그대로 있는데, 값들만 바꿔치기됨( key={index} )
+
+- 재조정 알고리즘에서도, 자식들이 key를 가지고 있다면, React는 key를 통해 기존트리와 이후 트리의 자식들이 일치하는지 확인 
+
+- 재사용 -> key값을 제대로 줘야 재사용 가능 ex) 재배열 할때 index를 키값으로 준다면,,, X
+- 제대로 준다 -> 중복없고, 바뀌지 않는 
+
+
+----
+
+
+상태끌어올리기 (State lifting up)
+----
+<a href="#">참고 code</a>
+
+- 형제의 상태를 알 방법이 없음 -> 부모로 상태의 관리를 끌어올림 
+- 다시, 형제 컴포넌트의 상태 궁금 -> 필요하면 부모(서로의 공통된)로 lifting up
+- Props drilling -> 과도한 lifting은 drilling 을 야기,,
+
+<br/>
+
+-----
+
+데이터 Fetch해보기(API call)
+----
+Fetch란 네트워크 통신
+화면을 그릴때 서버가 데이터를 줄거고 프론트는 그 데이터를 가지고 화면에 나타나게 해줌
+- React에서 데이터를 가져와보기
+
+Fetch API: 네트워크 통신을 포함한 리소스 취득을 위한 인터페이스가 정의되어 있음
+https://developer.mozilla.org/ko/docs/Web/API/Fetch_API#%EA%B8%B0%EB%B3%B8_%EA%B0%9C%EB%85%90%EA%B3%BC_%EC%82%AC%EC%9A%A9_%EB%B0%A9%EB%B2%95
+
+JSON : 데이터를 표현하는 데이터 포멧의 일환 
+
+<a href="#">참고 code</a>
+
+```jsx
+{JSON.stringify(data, null, 2)}
+```
+
+- json형태를 우리가 원하는 형태로 만들어줌
+
+<br/>
+정리 
+
+- Fetch api -> 네트워크 통신 도구 
+- 상황별 핸들링 -> 로딩 (loading...)/ 데이터 / 에러 (.catch)
