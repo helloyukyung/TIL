@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <div id="root"></div>
+    <script type="text/babel">
+      const App = () => {
+        const [data, setData] = React.useState(null);
+        const [error, setError] = React.useState(null);
+        React.useEffect(() => {
+          fetch(
+            "https://raw.githubusercontent.com/techoi/raw-data-api/main/simple-api.json"
+          )
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (myJson) {
+              setData(myJson.data);
+            })
+            .catch((error) => {
+              setError(error.message);
+              console.log(error); //js, 요청사이에서 에러가 났을때 console.log 해줌
+            });
+        }, []);
+        if (error != null) {
+          return <p>{error} </p>;
+        }
+        if (data == null) {
+          return <p style={{ color: "red" }}>loading</p>;
+        }
+        return (
+          <div>
+            <p>People</p>
+
+            {data.people.map((person) => (
+              <div>
+                <span> name: {person.name}</span>
+                <span> age: {person.age} </span>
+              </div>
+            ))}
+          </div>
+        );
+      };
+      ReactDOM.render(<App />, document.getElementById("root"));
+      // rootElement.appendChild(element);
+    </script>
+  </body>
+</html>
