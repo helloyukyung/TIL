@@ -154,14 +154,15 @@ Element 찍어내기 ,재사용 가능한 element
       const element = (
         <>
         <Paint title="Good" description="good"/> 
-         {Paint ({title:"Bad", description:"bad", children :"hi" ,children :"hi"})}
-        </Paint>
+        <Paint title= "Bad"  description="bad" >haha</Paint>
         // {paint("Hello","hello")}
         </>
       );
 ```
 - React.creatElement; Paint -> props, element ->element 
+- "haha"= {children} 
 - 위에서 title="Good",  description="good", children= {Paint ({title:"Bad", description:"bad", children :"hi" ,children :"hi"})}
+
 
 js 와 jsx 섞어 쓰기1(If else)
 ----

@@ -255,6 +255,8 @@ Functional Component -> hook 으로 대부분 구현 가능
 합성이벤트 (Synthetic Event)
 ----
 
+인터페이스는 같지만 직접 대응되지 않음 (Html에서 제공한 native event와는 대응되지 않음 )
+
 react는 react를 사용하는 사용자들에게 
 일괄된 경험으로 개발할 수 있도록 도와준다. 
 
@@ -355,7 +357,7 @@ React에서는 원하는 동작을 캡슐화하는 컴퍼넌트를 만들 수 �
 
 
 - if -> if(condition){return A} else {return B}
-- && -> condition &&A, falsy 주의 (해결 boolean, or 삼항)
+- && -> condition &&A, falsy 주의 (해결 boolean 강제, or 삼항)
 - 삼항연산자 -> condition ? A: B
 - 아예 안그리고 싶은 경우 -> return null;
 
@@ -364,12 +366,14 @@ React에서는 원하는 동작을 캡슐화하는 컴퍼넌트를 만들 수 �
 
 List( 리스트와 Key)
 ----
+같은 컴퍼넌트가 여러개 그려져 있는 것 (map과 관련,,)
+
 key값은 element가 특정한지 고유성을 판단할 때만 쓸 뿐, 자식에게 데이터가 넘어가지 않음 (key는 props가 아님 )/ ```props.id```는 읽을 수 있으나, ```props.key```는 읽을 수 없음 
 
 List 정리 
 ----
 - map -> 배열의 개별 요소를 순회(item을 첫번째 인자로, index를 두번째 인자로 받음 ) 
-- default key -> 안주면 reㅇㅇㅇㅇㅇㅇㅇact는 index를 쓴다(Warnning)
+- default key -> 안주면 react는 index를 쓴다(재배열된다면,, Warnning)
 - 고유성 -> 형제 사이에서만 고유하면 됨 
 - key props -> key는 props로 넘어가지 않음 
 
@@ -378,4 +382,25 @@ List 정리
 Form 
 ----
 제어 컴포넌트(controlled Component) : component자체에 value를 주고 value를 state로 관리하고 있는 것.
+
 react가 상태를 직접 관리 
+
+제어 컴포넌트를 구현하는데 value어트리뷰트를 허용 
+
+ uncontrolled submit : 리엑트는 value에 대해 모르고 있음 
+
+
+ Form (정리)
+ ----
+ 
+ - Controlled Component -> input의 value를 state로 관리 
+ - 다중입력 -> event.target.name 
+ - Uncontrolled Component -> form element자체의 내부 상태 활용
+ - defaultValue, ref -> 기본값 / value확인 
+
+
+
+
+
+
+
