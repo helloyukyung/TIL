@@ -196,13 +196,40 @@ React는 강력한 합성 모델을 가지고 있으며, 상속대신 합성을 
 
 특수화 (Specialization)
 
+typeof -> type check 
+
+확장성 -> 다양한 상황을 품을 수 있도록 
+
+HOC(Higher Order Component)
+----
+
+고차 컴포넌트(HOC)는 컴포넌트를 가져와 새 컴포넌트를 반환하는 함수 
+
+컴포넌트 로직을 재사용하기 위한 React의 고급기술 
+
+어렵다 sibal 담에 보기로하자
+
+```jsx
+const EnhancedComponent = higherOrderComponent(WrappedComponent)
+```
+
+Memoization 
+---- 
+메모이제이션: 컴퓨터 프로그램이 동일한 계산을 반복해야 할 때, 이전에 계산한 값을 메모리에 저장함으로써 동일한 계산의 반복 수행을 제거하여 
+프로그램 실행속도를 빠르게 하는 기술이다. 
 
 
 
+React.memo 
+
+동일한 props로 렌더링을 한다며느 React.memo를 사용하여 성능 향상을 누릴 수 있다. 
+memo를 사용하면 React는 컴포넌트를 렌더링하지 않고 마지막으로 렌더링된 결과를 재사용한다.
 
 
+profiler
 
-
+React 애플리케이션이 렌더링하는 빈도와 렌더링 "비용"을 측정 <br/>
+메모이제이션과 같은 성능 최적화 방법을 활용할 수 있는 애플리케이션의 느린 부분들을 식별
 
 
 

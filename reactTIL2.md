@@ -1,4 +1,4 @@
-React 공식문서로 디테일 잡기 
+React 공식문서로 디테일 잡기 (초급)
 ====
 
 공식문서를 보는 이유와 방법 
@@ -392,7 +392,7 @@ react가 상태를 직접 관리
 
  Form (정리)
  ----
- 
+
  - Controlled Component -> input의 value를 state로 관리 
  - 다중입력 -> event.target.name 
  - Uncontrolled Component -> form element자체의 내부 상태 활용
