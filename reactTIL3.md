@@ -289,3 +289,67 @@ DOM 계층 구조 바깥에 있는 DOM 노드로 자식을 렌더링하는 최�
 createPotal -> 부모 컴포넌트 DOM 트리로부터 벗어남 
 
 이벤트 -> Portal에 있더라도 Event는 트리로 전파
+```jsx
+        <div>
+            <ThankyouDialog/>
+            <div style={{position:"absolute"}} >
+                <button>하2</button>
+            </div>
+        </div>
+```
+`하21` 버튼은 Thankyou Dialog를 눌렀을 때 덮어지지 않음 
+Dialog가 z index를 깔고 덮어 씌워야 되는데 위치상 뒤에 만들어진 컴포넌트가 더 상위를 차지,, 
+복잡한 컴퍼넌트가 계속 만들어지게 되면 UI의 스텍을 벗어나는 일을 할 수 없다 -> potal의중요성
+
+potal 사용법 
+---
+
+1. public/index.html에 ```<div id='portal'></div>``` 추가 
+(root div보다 한단계 뒤에 있는 potal div를 만든것 )
+
+2.
+ 
+```jsx
+const Portal = (props) => {
+    return createPortal(props.children, document.getElementById("portal"))
+}
+```
+3. 완성
+```jsx
+        <div>
+            <Portal>
+                <ThankyouDialog/>
+            </Portal>
+            
+            <div style={{position:"absolute"}} >
+                <button></button>
+            </div>
+        </div>
+```
+
+
+Render Props
+----
+React 컴포넌트 간에 코드를 공유하기 위해 함수 props를 이용하는 간단한 테크닉 
+
+재사용의 한 방법( Composition /HOC/ render props,,,)
+
+render props -> 무엇을 렌더링할 지 알려주는 <b>함수</b>
+
+render일 필요 없음 -> children도 되고 뭐든 됨 
+
+Pure Component -> props, state 비교하여 성능 최적화 
+
+
+Prop Types 
+----
+Props의 타입을 확인하기 위한 도구 <br/>
+(like. Flow, TypeScript같은 정적 타이핑 도구) 
+
+앱이 커짐에 따라 타입 확인을 하면 많은 버그를 잡을 수 있음 
+
+개발 모드에서만 동작 -> 유효하지 않은 prop에 대한 경고 
+
+custom -> RegExp등으로 사용자 정의 가능 
+
+children 제한 -> 원래 제약없던 갯수 제약 가능 
