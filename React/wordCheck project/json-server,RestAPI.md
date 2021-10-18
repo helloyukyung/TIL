@@ -18,3 +18,25 @@ HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Opera
 - Update : 수정(PUT)
 - Delete : 삭제(DELETE)
 - HEAD: header 정보 조회(HEAD)
+
+axios
+----
+위 CURD를 axios에서 사용할 수 있음 
+
+- GET : axios.get(url[, config])
+- POST : axios.post(url, data[, config])
+- PUT : axios.put(url, data[, config])
+- DELETE : axios.delete(url[, config])
+
+일반적으로 axios를 쓰기위해서는 4가지 기본 Params(Method, Url, Data(optional), Params(optional, 사용자 번호에 따른 조회))를 axios에 알려줘야한다. 
+
+```
+axios({
+    method: "get",
+    url: "url",
+    responseType: "type"
+}).then(function (response) {
+    // response Action
+});
+```
+ POST 메서드에서 data를 전송하기 위해서는 url 밑에 data Object를 추가하면 된다.
