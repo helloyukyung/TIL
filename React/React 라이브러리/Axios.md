@@ -4,16 +4,18 @@ Axios
 
 <a href="https://github.com/yukyung123/TIL/blob/master/CS/Node.js%26API.md">설명 참고</a>
 
+
+
 ```js
 import React, {useState} from 'react'
 import axios from 'axios'
 export default function AxiosApi() {
 
-    //photos, setPhotos 비구조화 할당해줌
-    let [photos, SetPhotos] = useState([]);
+    //photos, setPhotos 비구조화 할당
+    const [photos, SetPhotos] = useState([]);
 
     // 통신 메소드 
-
+    // api 요청 하고 SetPhotos로 photos에 값을 할당
     function searchApi() {
         const url ="https://jsonplaceholder.typicode.com/photos";
         axios.get(url)
