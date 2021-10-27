@@ -1,6 +1,6 @@
 async & await
 ====
-async/await은 promise를 좀 더 편리하게 만든 것  00sugar라고 함 .
+async/await은 promise를 좀 더 편리한 API를 제공하는것. (syntactic sugar)
 
 <h3>1. async</h3>
 
