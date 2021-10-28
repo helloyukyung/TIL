@@ -32,9 +32,9 @@ setTimeout안의 함수는 파라미터, 이 함수를 나중에 (1초 뒤에 )�
 
 ```js
 console.log('1')
-setTimeout(()=> 
-    console.log(2);
-    ,1000)
+setTimeout((() => 
+    console.log(2)  
+),1000)
 console.log('3')
 ```
 
@@ -58,7 +58,8 @@ function printWithDelay(print,timeout) {
 }
 printWithDelay(()=> console.log('async callback'),2000)
 ```
-값이 2초 뒤에 출력된다(비동기적).
+값이 2초 뒤에 출력된다(비동기적).</br>
+함수의 값을 파라미터로 넘겨줘서 파라미터로 받은 함수를 특정 작업이 끝나고 호출해줄 수 있다.
 
 콜백지옥
 ----
