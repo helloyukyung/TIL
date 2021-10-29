@@ -1,9 +1,8 @@
 Axios
 ====
-무료 api서버를 사용하여 Axios로 API 화면에 출력해보기 
+무료 api서버를 사용하여 Axios로 API 데이터를 화면에 출력해보기 
 
-<a href="https://github.com/yukyung123/TIL/blob/master/CS/Node.js%26API.md">설명 참고</a>
-
+<a href="https://github.com/yukyung123/TIL/blob/master/CS/Node.js%26API.md">참고</a>
 
 
 ```js
@@ -49,5 +48,39 @@ export default function AxiosApi() {
     }
 }
 
+```
+
+응답 Schema 
+----
+axios 요청에 따른 응답결과는 응답 데이터 외에도 다양하게 출력 가능 
+
+<a href="https://yamoo9.github.io/axios/guide/response-schema.html">참고</a>
+
+- responce.data : 응답 데이터 
+- responce.status :서버응답의 HTTP상태코드 
+- responce.statusText: 서버응답으로부터의 HTTP상태 메세지
+
+```js
+
+const url ="https://jsonplaceholder.typicode.com/photos";
+axios.get(url)
+.then(function(response) {
+    console.log(response.data)
+    console.log(response.status)
+    console.log(response.statusText) // 빈값ㅜ
+})
+.catch(function(error){
+    console.log("실패");
+})
 
 ```
+
+
+API 연동
+----
+- useState를 이용해서 요청 상태를 관리
+- useEffect를 사용하여 컴포넌트가 렌더링되는 시점에 요청을 시작 
+
+
+
+
