@@ -95,3 +95,17 @@ for i in a :# 안쪽 리스트 꺼내기
 # HI
 # 하이
 ```
+
+<h3>리스트 선언</h3>
+11 x 10 리스트 생성 (11열 10행)
+
+```python
+array = [['*']*11 for i in range(10)]
+```
+<h3>2중 리스트의 index표현 </h3>
+
+```python
+#array[row][col]
+array[3][1] = "><" 
+
+```
