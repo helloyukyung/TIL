@@ -10,10 +10,10 @@ XML HttpRequest와 FetchAPI(데이터를 전송받고 처리하는 통신객체)
 
 CORS error
 ----
-내 로컬 (localhost:3000)에서 axios를 사용해 서버(http://sulrae.com/gachigagae-admin/)에서 api를 호출해 데이터를 가져오려고 했으나 CORS 에러발생
+내 로컬 (localhost:3000)에서 axios를 사용해 서버에서 api를 호출해 데이터를 가져오려고 했으나 CORS 에러발생
 
 ```
-gachigagae:1 Access to XMLHttpRequest at 'http://sulrae.com/api/shop' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+gachigagae:1 Access to XMLHttpRequest at '{서버}' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 ```
 
 서로 다른 출처, 즉 나는 로컬, 서버는 브라우저(외부서버)로 되어 있어 보안상의 이유로 차단을 당한것 같다. 
