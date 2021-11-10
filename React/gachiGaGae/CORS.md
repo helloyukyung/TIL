@@ -18,7 +18,7 @@ gachigagae:1 Access to XMLHttpRequest at '{서버}' from origin 'http://localhos
 
 서로 다른 출처, 즉 나는 로컬, 서버는 브라우저(외부서버)로 되어 있어 보안상의 이유로 차단을 당한것 같다. 
 
-(+ useEffect 사용해서 axios호출을 했는데 dependency array를 [] 로 해놔서 api를 계속 호출해서 서버가 죽었다...⭐)
+(+ useEffect 사용해서 axios호출을 했는데 dependency array를 잘못 설정해 api를 계속 호출해서 서버가 죽었다...⭐)
 
 ----
 
