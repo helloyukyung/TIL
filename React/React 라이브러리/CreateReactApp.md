@@ -13,7 +13,9 @@ npx는 npm에서 제공해 주는 하나의 '도구'다.<br/>
 
 ---
 
-## Create React App
+## Create React App 이란
+
+---
 
 Create React App은 react의 Boilerplate(보일러 플레이트)다.<br/>
 terms에서는 보일러 플레이트를
@@ -25,10 +27,14 @@ CRA이 마냥 유용할 것 같지만, 실제로 React 프로젝트를 시작할
 
 ## Create React App의 기본구조
 
+---
+
 ### node_modules/
 
 외부 모듈을 설치(ex. npm i axios)하면 node_modules 폴더에 다운로드 된다.<br/>
 그리고 설치된 외부 모듈을 import 하면 Node.js는 node_modules에서 해당 모듈을 찾는다.<br/>
+
+---
 
 ### public/
 
