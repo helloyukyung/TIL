@@ -15,19 +15,15 @@ npx는 npm에서 제공해 주는 하나의 '도구'다.<br/>
 
 ## Create React App 이란
 
----
-
 Create React App은 react의 Boilerplate(보일러 플레이트)다.<br/>
 terms에서는 보일러 플레이트를
 `변경이 거의 또는 전혀 없이 많은 곳에 포함되어야 하는 코드 섹션`라고 정의하고 있다.<br/>
 즉 react project를 시작할 때, 기본적으로 많이 쓰이는 기능들을 create-react-app에 모아놓은 것이다.<br/>
-CRA이 마냥 유용할 것 같지만, 실제로 React 프로젝트를 시작할 때, 불필요한(안 쓰는) 기능들이 기본적으로 설치되어 있을 수 있다는 단점 또한 존재한다.<br/>
+CRA가 마냥 유용할 것 같지만, 실제로 React 프로젝트를 시작할 때, 불필요한(안 쓰는) 기능들이 기본적으로 설치되어 있을 수 있다는 단점 또한 존재한다.<br/>
 
 ---
 
 ## Create React App의 기본구조
-
----
 
 ### node_modules/
 
