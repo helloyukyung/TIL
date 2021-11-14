@@ -27,7 +27,7 @@ TypeError: Cannot read properties of null (reading 'map')
 
 해당 컴포넌트에 props로 `markers`를 불러왔는데 markers가 받아오기 전에 그려져 빈값을 받아온 것 같다.
 
-marker뒤에 ? 을 붙여 Marker가 있으면 map() 함수가 실행되게 해주었다.
+markers뒤에 ? 을 붙여 markers가 있으면 map() 함수가 실행되게끔 해주었다.
 
 ## 해결코드
 
