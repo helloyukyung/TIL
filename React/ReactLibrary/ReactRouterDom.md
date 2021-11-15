@@ -4,7 +4,7 @@ react-router-dom은 SPA(Single Page Application) 앱을 만들 때 표준처럼 
 
 SPA의 단점이 주소가 바뀌지 않는다는 것인데 React Router를 사용하면, 발생하는 라우팅이 location이나 history와 같은 브라우저 내장 API(history API)와 연동이 된다.
 
-즉, react-router-dom를 사용하면, SPA의 장점을 누리면서도 브라우저상의 라우팅(특정 주소 고정, 뒤로가기(기본 SPA는 뒤로가기 버튼을 누르면 이전 페이지가 아닌 그전에 서핑한 다른 웹사이트로 이동), 새로고침 등)을 이용할 수 있다는 것이다.
+즉, react-router-dom를 사용하면, SPA의 장점을 누리면서도 브라우저상의 라우팅(특정 주소 고정, 뒤로가기(기본 SPA는 뒤로가기 버튼을 누르면 이전 페이지가 아닌 그전에 서핑한 다른 웹사이트로 이동), 새로고침 등)을 이용할 수 있다.
 
 ## Link component
 
@@ -12,8 +12,9 @@ SPA의 단점이 주소가 바뀌지 않는다는 것인데 React Router를 사�
 <Link to="/potato"/> <div>감자로 가는길</div></Link>
 ```
 
-HTML의 `<a>` tag와 유사. `<a>`의 `href `속성 대신 `to` props를 통해 이동할 경로를 지정해준다.<br/>
-위 코드(경로)는 ex. localhost:3000/potato 로 이동시켜준다.
+HTML의 `<a>` tag와 유사하다.<br/>
+`<a>`의 `href `속성 대신 `to` props를 통해 이동할 경로를 지정해준다.<br/>
+위 코드(경로)는 ex. (도메인 주소)/potato 로 이동시켜준다.
 
 ## Route component
 
@@ -21,7 +22,7 @@ HTML의 `<a>` tag와 유사. `<a>`의 `href `속성 대신 `to` props를 통해 
 <Route path="/potato" element={<Potato />} />
 ```
 
-위 코드는 현재 주소창의 경로가 /potato 경우 Potato component를 보여준다.
+위 코드는 현재 주소창의 경로가 /potato일 경우 Potato component를 보여준다.<br/>
 일반적으로 현재 주소창의 URL 경로에 따라 특정 콘텐츠를 보여주거나 숨기기 위해서 사용된다.
 
 ### Route에서 props 전달
@@ -36,7 +37,7 @@ HTML의 `<a>` tag와 유사. `<a>`의 `href `속성 대신 `to` props를 통해 
 </Route>
 ```
 
-위 (X) 코드는 Route component에 props를 전달해 준 것 !
+위 (X) 코드는 Route component에 props를 전달해 준 것. 헷갈리지 말자
 
 ## Routes(Switch)
 
@@ -50,7 +51,7 @@ HTML의 `<a>` tag와 유사. `<a>`의 `href `속성 대신 `to` props를 통해 
 
 Routes는 오직 Route compoment들로 구성된다(`<div>안돼!<div>`(X)).<br/>
 이전에는 Switch로 쓰였지만 v6이후부터는 무조건! Routes로 써야 한다.<br/>
-또한, 이전에는 `component` , `render` props를 통해 컴포넌트를 전달해 줬다면 v6 이후로는 element를 써야 한다.<br/>
+또한, 이전에는 `component` , `render` props를 통해 컴포넌트를 보여줬다면 v6 이후로는 element를 써야 한다.<br/>
 
 ## Router( BrouserRouter)
 
