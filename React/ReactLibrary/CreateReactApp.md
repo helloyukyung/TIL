@@ -83,8 +83,8 @@ ReactDom이 App componet를 document 내 id 값이 root인 태그안에 랜더�
 #### App.js
 
 root 가 되는 리액트 컴포넌트<br/>
-컴포넌트를 정의(실제 화면에서 표시되는 내용이 여기에서 정의된다.)<br/>
-해당 폴더에서 네비게이팅이 이루어진다.<br/>
+application에서 중심이 된다.
+서버 설정 / 미들웨어 정의 / 라우트 정의 등 여러가지를 설정하고, 서버 운영을 위한 로직을 작성한다.<br/>
 
 위 파일들을 정리해서 보면 index.html > index.js > app.js 순으로 그려진다.<br/>
 
