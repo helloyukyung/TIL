@@ -3,7 +3,7 @@
 반복되는 모든 것에는 reduce를 쓸 수 있다.<br/>
 reduce로 map과 filter와 같은 함수형 메소드가 구현이 가능하다.
 
-## reduve method
+## reduce method
 
 ```js
 배열.reduce((누적값, 현잿값, 인덱스) => {
