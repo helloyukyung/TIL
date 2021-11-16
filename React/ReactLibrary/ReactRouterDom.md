@@ -53,7 +53,7 @@ Routes는 오직 Route compoment들로 구성된다(`<div>안돼!<div>`(X)).<br/
 이전에는 Switch로 쓰였지만 v6이후부터는 무조건! Routes로 써야 한다.<br/>
 또한, 이전에는 `component` , `render` props를 통해 컴포넌트를 보여줬다면 v6 이후로는 element를 써야 한다.<br/>
 
-## Router( BrouserRouter)
+## Router( BrouserRouter )
 
 ```jsx
 import { BrowserRouter as Router } from "react-router-dom";
