@@ -1,4 +1,4 @@
-# StyledComponents
+# materialUi
 
 styled-components문법을 사용해 Material UI component 스타일링 하는 법
 
