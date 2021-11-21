@@ -1,6 +1,6 @@
 # Lottie
 
-Lottie는 에어비앤비에서 개발한 라이브러리로 간단하게 벡터 애니메이션을 웹, 앱에 적용할 수 있게 만들어준다.
+Lottie는 에어비앤비에서 개발한 라이브러리로 간단하게 벡터 애니메이션을 웹, 앱에 적용할 수 있게 만들어준다.  
 https://airbnb.design/lottie/
 
 https://lottiefiles.com/
