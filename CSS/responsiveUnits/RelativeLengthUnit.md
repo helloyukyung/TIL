@@ -32,7 +32,7 @@ em은 선택된 font-family에 상관없이 고정된 font-size를 유지한다.
 
 ## ex, ch
 
-ex는 em 과 달리 지정된 font-faimily의 크기에 따라 높이가 변경될 수 있다.
+ex는 em 과 달리 지정된 font-faimily의 크기에 따라 높이가 변경될 수 있다.  
 ch는 적용된 font-family에서 0의 너비를 나타내는 단위
 
 ## rem
@@ -62,8 +62,8 @@ root + em
 
 ## vw, vh, vmin, vmax
 
-viewport에 따라 값을 지정
-vw : viewport width
+viewport에 따라 값을 지정  
+vw : viewport width  
 vh : viewport height
 
 ## %
