@@ -13,28 +13,3 @@ CSS에는 절대 길이 단위(Absolute length units)와 상대 길이 단위(Re
 
 절대길이에는 보통 px, pt를 많이 쓰며,
 상대길이에는 em, rem, vw, vh, % 등이 있다.
-
-## 상대단위 종류
-
-### em
-
-1em =16px 이다.<br/>
-그러다 상대단위인 이유는 부모요소를 기준으로 자식요소의 폰트사이즈가 정해지기 때문이다.<br/>
-
-```
-.parent {
-	font-size: 4em;	/* px로 변환하면 4 * 16 = 64px */
-}
-.child {
-	font-size: 1em;	/* parent요소의 1배 크기 = 64px */
-}
-```
-
-### vw & vh
-
-웹에서 viewport는 화면에서 보이는 부분을 말한다.<br/>
-vw & vh는 현재 실행중인 스크린 크기에 맞춰 상대적 크기를 반환한다.<br/>
-vw는 viewport width, vh는 viewport height를 의미하며, 100vh, 100vw 가 전체 화면의 기준이 된다. <br/>
-
-(ex. 50vw는 전체 화면 너비의 50%,
-10vh는 전체 화면 높이의 10%)

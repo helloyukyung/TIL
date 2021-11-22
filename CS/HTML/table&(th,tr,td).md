@@ -9,7 +9,7 @@ th는 header cell, 표의 제목을 의미
 tr은 table row, 가로줄을 의미  
 td는 table data, 셀을 만드는 역할
 
-## gachiGaGae에서 구현한 CoffeeMenu table 표
+### gachiGaGae에서 구현한 CoffeeMenu table 표
 
 ```jsx
 (
