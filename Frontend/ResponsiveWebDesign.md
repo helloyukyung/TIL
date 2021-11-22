@@ -12,9 +12,9 @@ FlUID LAYOUT을 위해서는 px(고정된)보다 Flex grid, Flex box , vh, vw, %
 
 단위를 설정해 Desktop, tablet, mobile 환경에 맞게 웹 환경을 조절할 수 있다.
 
-mobile - 320px ~ 480px  
-tablet - 768px ~ 1024px  
-desktop - 1024px
+mobile : 320px ~ 480px  
+tablet : 768px ~ 1024px  
+desktop : 1024px
 
 ```css
 @media screen and (min-width: 800px) {
