@@ -1,6 +1,8 @@
 # Redux
 
-어플리케이션의 state를 관리하고 업데이트 해주는 상태관리 라이브러리.
+어플리케이션의 state를 관리하고 업데이트 해주는 (전역)상태관리 라이브러리.
+
+구성요소 : Store /Reducer /Action /Selector
 
 ## Redux가 필요한 이유
 
