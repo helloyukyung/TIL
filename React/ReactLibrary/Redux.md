@@ -30,9 +30,9 @@ if (action.type === "증가") {
 }
 ```
 
-component들은 몸무게 state를 달라고 부탁하면 됨(수정요청만 가능)
+component들은 몸무게 state를 달라고 부탁하면 된다.(수정요청만 가능)
 
-이렇게 모여져있어 버그가 일어났을 때 추적이 쉬움
+이렇게 모여져있어 버그가 일어났을 때 추적이 쉽다.
 
 ## Redux 사용방법
 
@@ -49,3 +49,9 @@ return (
   </div>
 );
 ```
+
+## redux/toolkit
+
+복잡한 리덕스 스토어를 편하게 사용하게 만들어준다.
+
+Redux 라이브러리들 조합(immer/saga/thunk/reselect)
