@@ -23,7 +23,7 @@ example.split(``);
 // code 상에서 빨간줄(에러)가 발생하지 않음
 ```
 
-identity는 any타입으로 인자를 받아 그 인자를 any로 반환하는 함수다.
+identity는 any타입으로 인자를 받아 그 인자를 반환하는 함수다.
 
 identity(1)을 example변수에 할당했을 때, example값의 타입은 any이므로 문자열메서드인 split()을 사용할 수 있는 오류가 발생한다.
 
