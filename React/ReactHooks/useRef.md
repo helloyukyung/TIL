@@ -60,6 +60,8 @@ useRef()를 사용해 Ref 객체를 만들고 이 객체를 우리가 선택하�
 
 위 예제에서는 onset함수에서input에 포커스하는 focus DOM API를 호출
 
+console.log로 살펴보면 다음과 같다.
+
 ```js
 console.log(nameInput);
 //{current: input}
