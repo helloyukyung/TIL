@@ -47,7 +47,7 @@ identity 반환값을 number로 설정하면 , 문자열 메소드 사용에 빨
 
 ```tsx
 // identity의 인자 타입 : <T>
-// identity함수가 반환하는 타입 :<T>
+// identity함수가 반환하는 타입 :arg의 타입
 function identitiy<T>(arg: T): T {
   return arg;
 }
