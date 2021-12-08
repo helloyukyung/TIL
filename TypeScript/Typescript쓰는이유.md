@@ -1,8 +1,8 @@
 # Typescript쓰는이유
 
-1.  JavaScript는 Dynamic Typing이 가능해서
+(1)
 
-5-'3'도 허용이 된다.
+JavaScript는 Dynamic Typing이 가능해서 5-'3'도 허용이 된다.
 
 원래는 숫자-숫자만 가능하지만 js가 알아서 3을 숫자로 바꿔준다.
 
@@ -10,4 +10,6 @@
 
 Typescript는 이를 엄격하게 계산해서 error로 표시해준다.
 
-2.  TypeScript는 에러메세지의 퀄리티가 높다. ->엄격한 type check로 인한 부가기능
+(2)
+
+TypeScript는 에러메세지의 퀄리티가 높다. ->엄격한 type check로 인한 부가기능
