@@ -1,4 +1,4 @@
-# Model$Schema
+# Schema & Model
 
 스키마는 해당 컬렉션의 문서에 어떤 종류의 값이 들어가는지를 정의힌다.
 
