@@ -33,8 +33,8 @@ dataToSubmit이 랜더링되었을 때 undifined인데 dataToSubmit의 nickname�
 
 ## 해결방법
 
-`?` 연산자 사용  
-`?` 연산자는 해당 값이 페이지에 들어올 때까지 렌더링을 하지 않는다.
+`?` optional chaining 사용  
+optional chaining 연산자는 undefined 이나 null 값을 예외처리해준다.
 
 ```js
 formData.append("nickname", dataToSubmit?.nickname);
