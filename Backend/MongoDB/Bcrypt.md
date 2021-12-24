@@ -3,6 +3,7 @@
 Bcrypt를 사용해 비밀번호를 암호화하여 데이터베이스에 저장해줘야 한다.
 
 ```json
+// 안전하지 않음 
 {
   "email": "email@naver.com",
   "password": "1234567"
