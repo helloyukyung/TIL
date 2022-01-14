@@ -34,8 +34,22 @@ def recursive_function(i):
     print(i,"번째 함수에서",i+1,'재귀함수 호출합니다')
     recursive_function(i + 1)
     print(i,"번째 재귀함수를 종료합니다.")
-
-
 recursive_function(1)
 
 ```
+
+```python
+def gcd(a,b):
+    if a % b == 0:
+        return b
+    else:
+        return gcd(b, a%b)
+
+print(gcd(192,162))
+```
+
+## 재귀함수 사용의 유의 사항
+
+재귀함수를 잘 활용하면 복잡한 알고리즘을 간결하게 작성할 수 있다.  
+컴퓨터가 함수를 연속적으로 호출하면 컴퓨터 메모리 내부의 스택 프레임에 쌓인다.  
+그래서 스택을 사용해야 할 때, 구현상 스택 라이브러리 대신에 재귀함수를 이용하는 경우가 많다.
