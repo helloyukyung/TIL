@@ -37,6 +37,8 @@ const promise = new Promise((resolve,reject)=> {
     },2000)
 });
 ```
+//resolve() :Promise.then 객체를 반환한다. 
+
 <h3>2. Consumers </h3>
 
 - then :정상적으로 수행될 때
