@@ -1,6 +1,6 @@
 # Generic
 
-제너릭 타입은 타입에 유연성을 제공하여 컴포넌트 등에서 재사용을 가능하게 해주는 타입을 의미한다.
+제너릭 타입은 타입에 유연성을 제공하여 컴포넌트 등에서 재사용을 가능하게 해주는 타입을 의미한다(타입을 파라미터화).
 
 타입의 유연성이란 :string , :number 등과 같이 고정된 타입이 아닌 사용에 따라 여러 타입을 사용하게 해주는 것을 의미한다.
 
@@ -80,3 +80,27 @@ idnetity함수가 반환하는 타입은 string이므로.
 문자열 메소드인 split()를 사용할 수 있다.
 
 따라서 generic을 사용했을 때 타입정보가 동적으로 결정된다는 것을 알 수 있다.
+
+```ts
+function createPromise<T>(x: T, timeoute: number) {
+  return new Promise((resolve: (v: T) => void, reject) => {
+    setTimeout(() => {
+      resolve(x);
+    }, timeoute);
+  });
+}
+createPromise(10, 100).then((v) => console.log(v));
+createPromise("string", 100).then((v) => console.log(v));
+```
+
+```ts
+function createTuple2<T, U>(v: T, v2: U): [T, U] {
+  return [v, v2];
+}
+function createTuple3<T, U, D>(v: T, v2: U, v3: D): [T, U, D] {
+  return [v, v2, v3];
+}
+const t1 = createTuple2("user1", 1000);
+```
+
+튜플로도 사용이 가능하다.
