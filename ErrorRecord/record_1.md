@@ -18,9 +18,9 @@ export const hiWord = (hi: boolean) => {
 
 ## 해결 방법
 
-함수의return이 jsx 문법으로 되어 있는데 현재 react가 import 되어있지 않다.
+함수의 return이 jsx 문법으로 되어 있는데 현재 react가 import 되어있지 않다.
 
-Create React App은 버전 4.1이상에서 즉시 사용 가능한 새로운 JSX 변환을 지원하지만 사용자 정의 설정을 사용하는 경우
+Create React App은 버전 4.1이상에서 즉시 사용 가능한 새로운 JSX 변환을 지원하지만 사용자 정의 설정을 사용하는 경우 혹은 버전이 4.1보다 낮을 경우
 `import React from "react"`
 다음 import 가 필요하다.
 
